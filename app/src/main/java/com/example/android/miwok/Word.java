@@ -17,6 +17,7 @@ public class Word {
      */
     private String mMiwokTranslation;
 
+    private int mAudioResourceId;
 
     private int mImageResourceID = NO_IMAGE_PROVIDED;
 
@@ -29,9 +30,10 @@ public class Word {
      *                           (such as English)
      * @param miwokTranslation   is the word in the Miwok language
      */
-    public Word(String defaultTranslation, String miwokTranslation) {
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
 
@@ -45,10 +47,11 @@ public class Word {
      * @param imageResourceId is the drawable resource ID for the image associated with the word
      *
      */
-    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId) {
+    public Word(String defaultTranslation, String miwokTranslation, int imageResourceId, int audioResourceId) {
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
         mImageResourceID = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
 
     /**
@@ -58,12 +61,15 @@ public class Word {
         return mDefaultTranslation;
     }
 
-
     /**
      * Get the Miwok translation of the word.
      */
     public String getMiwokTranslation() {
         return mMiwokTranslation;
+    }
+
+    public int getAudioResourceId() {
+        return mAudioResourceId;
     }
 
     public int getImageResourceId(){
@@ -74,4 +80,14 @@ public class Word {
         return mImageResourceID != NO_IMAGE_PROVIDED;
     }
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mMiwokTranslation='" + mMiwokTranslation + '\'' +
+                ", mAudioResourceId=" + mAudioResourceId +
+                ", mImageResourceID=" + mImageResourceID +
+                '}';
+
+    }
 }
